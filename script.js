@@ -1,20 +1,20 @@
-let slider = $(".gallery-item");
+let slides = $(".gallery-item");
 let active = $(".active");
-slider.hide();
+slides.hide();
 active.show();
 
-setInterval(slideImg, 2000);
+setInterval(slider, 2000);
 
-function slideImg() {
-  let nextImg = active.next();
-  console.log(nextImg.length);
+function slider() {
+  let active = $(".active"); // UPDATE VARIABLE!!!
+  let next = active.next();
 
-  if (nextImg.length === 0) {
-    nextImg = slider.first();
-    // nextImg.addClass("active");
+  if (next.length === 0) {
+    next = slides.first();
   }
+
   active.fadeOut(1000);
-  nextImg.fadeIn(1000);
+  next.fadeIn(1000);
   active.removeClass("active");
-  nextImg.addClass("active");
+  next.addClass("active");
 }
